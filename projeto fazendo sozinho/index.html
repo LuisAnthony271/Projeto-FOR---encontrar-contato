@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de contatos</title>
+</head>
+
+<body>
+    <input placeholder="digite o nome ou o numero do seu contato">
+    <button class="button"> Procurar contato </button>
+    <p></p>
+</body>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+        input{
+            width: 300px;
+            padding: 8px;
+        }
+
+        input[type=text]{
+            margin-left: 8px;
+        }
+
+        input::placeholder {
+            text-align: center;
+        }
+
+        body{
+            margin: 20px 0 0 20px;
+        }
+
+        button{
+            width: 120px;
+            text-align: center;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        button:active{
+            opacity: 0.5;
+        }
+
+        button:hover{
+            opacity: 0.8;
+        }
+
+        p{
+            margin-top: 30px;
+        }
+
+    }
+</style>
+
+<script>
+    let p = document.querySelector('p')
+    let input = document.querySelector('input')
+    const button = document.querySelector('button')
+
+    const contacts = [
+        { name: 'Luis', number: '21966381815' },
+        { name: 'Rogéria', number: '24988334220' },
+        { name: 'Aline', number: '24999489169' },
+        { name: 'vivane', number: '6684574067' },
+        { name: 'Adriana', number: '21970882733' }
+    ]
+
+    button.addEventListener('click', searchName),
+    button.addEventListener('click', searchNumber)
+
+    function searchName() {
+        for (let i = 0; i < contacts.length; i++) {
+
+            if (input.value.toLowerCase == contacts[i].name.toLowerCase) {
+                p.innerHTML = `Contato encontrado. Nome: ${contacts[i].name}, Telefone: ${contacts[i].number}`
+                break
+            }
+
+            else {
+                p.innerHTML = 'Nome não encontrado.'
+            }
+        }
+
+    }
+
+    function searchNumber(){
+        for(let i = 0; i < contacts.length; i++)
+
+            if (input.value == contacts[i].number){
+                p.innerHTML = `Numero encontrado. Nome: ${contacts[i].name}, Telefone: ${contacts[i].number}`
+                    break
+            }
+
+            else (innerHTML = `Numero não encontrado`)
+    }
+
+
+</script>
+
+</html>
